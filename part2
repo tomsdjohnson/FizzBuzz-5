@@ -1,4 +1,6 @@
-for i in range(1, 500):
+max = int(input("Enter the maximum number. "))  # Maximum number plus one, strictly speaking
+
+for i in range(1, max):
     string = ""
 
     if i % 3 == 0:
@@ -10,11 +12,11 @@ for i in range(1, 500):
     if i % 11 == 0:
         string = "Bong"
 
-    if i % 13 == 0:
-        firstB = string.find("B")
-        if firstB == -1:  # B not found
-            string += "Fezz"
-        else:
+    if i % 13 == 0:                         # Instead of this search, maybe a flag could be used that
+        firstB = string.find("B")           # keeps track of the index of B (-1 if B does not exist).
+        if firstB == -1:  # B not found     # Though not complex, this will mean there will be way more
+            string += "Fezz"                # if statements within the above if statements.
+        else:                               # This search is linear though, so maybe it's worth doing this.
             string = string[:firstB] + "Fezz" + string[firstB:]
 
     if i % 17 == 0:
