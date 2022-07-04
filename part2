@@ -1,0 +1,28 @@
+for i in range(1, 500):
+    string = ""
+
+    if i % 3 == 0:
+        string += "Fizz"
+    if i % 5 == 0:
+        string += "Buzz"
+    if i % 7 == 0:
+        string += "Bang"
+    if i % 11 == 0:
+        string = "Bong"
+
+    if i % 13 == 0:
+        firstB = string.find("B")
+        if firstB == -1:  # B not found
+            string += "Fezz"
+        else:
+            string = string[:firstB] + "Fezz" + string[firstB:]
+
+    if i % 17 == 0:
+        str_list = [string[n:n+4] for n in range(0, len(string), 4)]
+        str_list.reverse()
+        string = "".join(str_list)
+
+    if string == "":
+        string = i
+
+    print(i, string)
