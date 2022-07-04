@@ -9,3 +9,5 @@ for i in range(1, 101):
         string = i
 
     print(string)
+
+# Do I even need 'if' statements? Could I have some kind of internal counter?
