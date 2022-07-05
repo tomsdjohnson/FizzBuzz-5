@@ -1,3 +1,5 @@
+### This isn't currently a .py file
+### Also this isn't currently execuable please put this in it's own fuction
 # Opted not to go down the command line route, though this could just as easily be done using 'sys'
 
 max = int(input("Enter the maximum number. "))  # Maximum number plus one, strictly speaking
@@ -10,7 +12,8 @@ while num != "/":
     if num != "/":
         rules.append(int(num))
 
-for i in range(1, max):
+### Seperate out the FizzBuzz logic into its own function
+for i in range(1, max): ### You should add 1 to the maximum number here
     string = ""
 
     if i % 3 == 0 and 3 in rules:
@@ -21,7 +24,8 @@ for i in range(1, max):
         string += "Bang"
     if i % 11 == 0 and 11 in rules:
         string = "Bong"
-
+        
+    ### This looks good as is :) 
     if i % 13 == 0 and 13 in rules:         # Instead of this search, maybe a flag could be used that
         firstB = string.find("B")           # keeps track of the index of B (-1 if B does not exist).
         if firstB == -1:  # B not found     # Though not complex, this will mean there will be way more
@@ -29,6 +33,10 @@ for i in range(1, max):
         else:                               # This search is linear though, so maybe it's worth doing this.
             string = string[:firstB] + "Fezz" + string[firstB:]
 
+    ### In this bit of code you are converting a string into an array of strings and then turning that array back into a string
+    ### You also rely on the fact that the words that will be printed are 4 letters long what if that was no longer the case?
+    ### Could you instead see if you can use an array of strings right from the start and only convert it back to a string at the end when printing the result?
+    ### Please let me know if you have any questiosn about what I've said :)
     if i % 17 == 0 and 17 in rules:
         str_list = [string[n:n+4] for n in range(0, len(string), 4)]
         str_list.reverse()
